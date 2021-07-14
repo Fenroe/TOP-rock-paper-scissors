@@ -2,11 +2,11 @@ const gameDecisions = ["rock", "paper", "scissors"]
 
 function playerPlay() {
     let playerDecision = window.prompt("Rock, Paper, or Scissors: Make your choice!");
-    if (gameDecisions.indexOf(playerDecision)===-1) {
+    playerDecisionFormatted = playerDecision.toLowerCase();
+    if (gameDecisions.indexOf(playerDecisionFormatted)===-1) {
         return -1;
     }
     else {
-        let playerDecisionFormatted = playerDecision.toLowerCase();
         return playerDecisionFormatted;
     }
 }
@@ -49,5 +49,5 @@ function gameRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(gameRound(playerPlay(), computerPlay()));
+window.alert(gameRound(playerPlay(), computerPlay()));
 
