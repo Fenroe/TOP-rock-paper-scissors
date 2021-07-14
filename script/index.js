@@ -18,39 +18,73 @@ function computerPlay() {
 
 function gameRound(playerSelection, computerSelection) {
     const result = "The computer chose "
-    const win = ". You win!"
-    const lose = ". You lose!"
+    const win = ". You gain a point!"
+    const lose = ". Computer gains a point!"
     if (playerSelection === -1) {
-        return "Sorry, that's not a valid choice";
+        window.alert("Sorry, that's not a valid choice");
+        return 0;
     }
     else if (playerSelection === computerSelection) {
-        return "You both chose "+playerSelection+", so it's a draw."
+        window.alert("You both chose "+playerSelection+", so it's a draw.");
+        return 0;
     }
     else if (playerSelection === "rock") {
         if (computerSelection === "paper") {
-            return result+computerSelection+lose;
+            window.alert(result+computerSelection+lose);
+            return -1;
         }
         else {
-            return result+computerSelection+win;
+            window.alert(result+computerSelection+win);
+            return 1;
         }
     }
     else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
-            return result+computerSelection+win;
+            window.alert(result+computerSelection+win);
+            return 1;
         }
         else {
-            return result+computerSelection+lose;
+            window.alert(result+computerSelection+lose);
+            return -1;
         }
     }
     else {
         if (computerSelection === "paper") {
-            return result+computerSelection+win;
+            window.alert(result+computerSelection+win);
+            return 1;
         }
         else {
-            return result+computerSelection+lose;
+            window.alert(result+computerSelection+lose);
+            return -1;
         }
     }
 }
 
-window.alert(gameRound(playerPlay(), computerPlay()));
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    while (playerScore < 5) {
+        let roundResult = gameRound(playerPlay(), computerPlay())
+        if (roundResult === 1) {
+            playerScore++;
+        }
+        else if (roundResult === -1) {
+            computerScore++;
+            if (computerScore === 5) {
+                playerScore+=5;
+            }
+        }
+        else {
+            playerScore+=roundResult; //expected that this will not affect the player's score.
+        }
+    }
+    if (computerScore === 5) {
+        return "You lose!";
+    }
+    else {
+        return "You win!";
+    }
+}
+
+window.alert(game());
 

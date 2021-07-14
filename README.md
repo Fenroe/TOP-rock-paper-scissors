@@ -14,3 +14,7 @@ The second issue has been resolved.
 14/7/21 18:38
 
 The first issue has been eased to an extent. Although I wouldn't call it well-written code, I'm happy with its readability for the time being.
+
+14/7/21 19:15 
+
+I added the game function to declare a winner after either the player or computer gains five points. This was somewhat trickier than expected though I was able to keep calm and debug the code. Again, this isn't super efficient code but I'm happy to have it working in the way I envisioned. 
