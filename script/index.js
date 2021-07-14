@@ -17,6 +17,9 @@ function computerPlay() {
 }
 
 function gameRound(playerSelection, computerSelection) {
+    const result = "The computer chose "
+    const win = ". You win!"
+    const lose = ". You lose!"
     if (playerSelection === -1) {
         return "Sorry, that's not a valid choice";
     }
@@ -25,26 +28,26 @@ function gameRound(playerSelection, computerSelection) {
     }
     else if (playerSelection === "rock") {
         if (computerSelection === "paper") {
-            return "The computer chose "+computerSelection+". You lose!";
+            return result+computerSelection+lose;
         }
         else {
-            return "The computer chose "+computerSelection+". You win!";
+            return result+computerSelection+win;
         }
     }
     else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
-            return "The computer chose "+computerSelection+". You win!";
+            return result+computerSelection+win;
         }
         else {
-            return "The computer chose "+computerSelection+". You lose!";
+            return result+computerSelection+lose;
         }
     }
     else {
         if (computerSelection === "paper") {
-            return "The computer chose "+computerSelection+". You win!";
+            return result+computerSelection+win;
         }
         else {
-            return "The computer chose "+computerSelection+". You lose!";
+            return result+computerSelection+lose;
         }
     }
 }

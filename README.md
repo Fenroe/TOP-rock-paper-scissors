@@ -10,3 +10,7 @@ The JS code has been drafted. Going forward I will work to solve the following i
 14/7/21 18:20
 
 The second issue has been resolved. 
+
+14/7/21 18:38
+
+The first issue has been eased to an extent. Although I wouldn't call it well-written code, I'm happy with its readability for the time being.
