@@ -1,3 +1,5 @@
-import game from "./components/game";
+import UI from './components/UI/UI';
 
-window.alert(game());
+const page = new UI();
+
+page.renderPage();
