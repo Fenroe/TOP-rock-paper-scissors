@@ -86,5 +86,4 @@ function game() {
     }
 }
 
-window.alert(game());
-
+export default game();
