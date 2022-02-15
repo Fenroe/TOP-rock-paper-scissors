@@ -6,6 +6,17 @@ it('is an object', () => {
   expect(typeof testPlayer).toBe('object');
 });
 
+it('returns name via getter', () => {
+  const testPlayer = new Player();
+  expect(testPlayer.name).toBe('');
+});
+
+it('changes name via setter', () => {
+  const testPlayer = new Player();
+  testPlayer.name = 'test name';
+  expect(testPlayer.name).toBe('test name');
+});
+
 it('returns score via getter', () => {
   const testPlayer = new Player();
   expect(testPlayer.score).toBe(0);
