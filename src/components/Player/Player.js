@@ -1,8 +1,19 @@
 class Player {
+  #name;
+
   #score;
 
   constructor() {
+    this.#name = '';
     this.#score = 0;
+  }
+
+  get name() {
+    return this.#name;
+  }
+
+  set name(playerName) {
+    this.#name = playerName;
   }
 
   get score() {
