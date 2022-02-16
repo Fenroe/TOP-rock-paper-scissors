@@ -23,6 +23,10 @@ class Player {
   increaseScore() {
     this.#score += 1;
   }
+
+  resetScore() {
+    this.#score = 0;
+  }
 }
 
 export default Player;

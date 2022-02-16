@@ -2,31 +2,64 @@ import Player from '../Player/Player';
 import Game from '../Game/Game';
 import UI from '../UI/UI';
 
-class App {
-  #gameActive;
+function App() {
+  const user = new Player();
+  const opponent = new Player();
+  const gameLogic = new Game();
+  const uiController = new UI();
 
-  #playerName;
-
-  constructor() {
-    this.#gameActive = false;
-    this.#playerName = '';
+  function initPlayers() {
+    user.resetScore();
+    opponent.resetScore();
   }
 
-  get gameActive() {
-    return this.#gameActive;
+  function userWins() {
+    if (user.score >= 5) {
+      return true;
+    }
+    return false;
   }
 
-  startGame() {
-    this.#gameActive = true;
+  function opponentWins() {
+    if (opponent.score >= 5) {
+      return true;
+    }
+    return false;
   }
 
-  endGame() {
-    this.#gameActive = false;
+  function playRound(decision) {
+    let result = 'It was a tie! Nobody gains a point';
+    if (gameLogic.round(decision) === 'win') {
+      user.increaseScore();
+      result = 'You won! You gain a point';
+    }
+    if (gameLogic.round(decision) === 'lose') {
+      opponent.increaseScore();
+      result = 'You lost! Your opponent gains a point';
+    }
+    if (userWins()) {
+      uiController.renderGameOverScreen('Congratulations, you won!');
+      return;
+    }
+    if (opponentWins()) {
+      uiController.renderGameOverScreen('You lost. Better luck next time!');
+      return;
+    }
+    document.querySelector('.decision-screen-heading').textContent = result;
   }
 
-  get playerName() {
-    return this.#playerName;
+  function startGame() {
+    initPlayers();
+    uiController.renderDecisionScreen(playRound);
   }
+
+  function renderPage() {
+    uiController.renderPage(startGame);
+  }
+
+  return {
+    renderPage,
+  };
 }
 
 export default App;

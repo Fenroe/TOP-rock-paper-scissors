@@ -1,5 +1,5 @@
-import UI from './components/UI/UI';
+import App from './components/App/App';
 
-const page = new UI();
+const app = App();
 
-page.renderPage();
+app.renderPage();

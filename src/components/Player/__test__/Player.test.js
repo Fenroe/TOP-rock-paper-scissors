@@ -27,3 +27,10 @@ it('increases score', () => {
   testPlayer.increaseScore();
   expect(testPlayer.score).toBe(1);
 });
+
+it('resets score', () => {
+  const testPlayer = new Player();
+  testPlayer.increaseScore();
+  testPlayer.resetScore();
+  expect(testPlayer.score).toBe(0);
+});
